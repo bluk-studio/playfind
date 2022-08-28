@@ -1,0 +1,18 @@
+{
+  "extends": "nx/presets/npm.json",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "npmScope": "playfind",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "accessToken": "YTU1MWZiNTQtMzQ2My00ODhlLWE5MzgtYjBhM2E3NjlmZDRhfHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "plugins": ["@nxrs/cargo"]
+}
