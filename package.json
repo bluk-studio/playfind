@@ -5,6 +5,7 @@
   "scripts": {},
   "private": true,
   "devDependencies": {
+    "@grammyjs/hydrate": "^1.2.0",
     "@nrwl/cli": "14.7.3",
     "@nrwl/eslint-plugin-nx": "14.7.3",
     "@nrwl/express": "^14.7.3",
@@ -43,6 +44,8 @@
     "packages/**"
   ],
   "dependencies": {
+    "@grammyjs/conversations": "^1.0.2",
+    "@grammyjs/storage-file": "^2.0.0",
     "tslib": "^2.3.0"
   }
 }

@@ -11,3 +11,5 @@ export const Client = createTRPCClient<RouterDeclaration>({
   fetch: fetch as any,
   AbortController
 });
+
+export { RouterDeclaration };
