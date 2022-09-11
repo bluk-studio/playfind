@@ -3,16 +3,24 @@
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "npmScope": "playfind",
   "affected": {
-    "defaultBase": "master"
+    "defaultBase": "main"
   },
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
         "cacheableOperations": ["build", "lint", "test", "e2e"],
-        "accessToken": "YTU1MWZiNTQtMzQ2My00ODhlLWE5MzgtYjBhM2E3NjlmZDRhfHJlYWQtd3JpdGU="
+        "accessToken": "YTIwY2NiZmYtMzJjMy00NDE5LWExNzAtNmJiNjRlNDBmOWUyfHJlYWQtd3JpdGU="
       }
     }
   },
-  "plugins": ["@nxrs/cargo"]
+  "targetDefaults": {
+    "test": {
+      "inputs": ["default", "^default", "{workspaceRoot}/jest.preset.js"]
+    },
+    "lint": {
+      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
+    }
+  },
+  "defaultProject": "telegram"
 }
