@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/web-app/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx vite dev"
+        ],
+        "cwd": "packages/web-app"
+      }
+    }
+  },
+  "tags": []
+}

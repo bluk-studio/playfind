@@ -2,12 +2,13 @@ import { Api as OriginalApi, Bot, Context as OriginalContext, SessionFlavor } fr
 import { HydrateFlavor, HydrateApiFlavor } from '@grammyjs/hydrate';
 import { ConversationFlavor } from '@grammyjs/conversations';
 import { SessionData } from './session';
-import { Client } from './client';
+import { ContextCallbackSaver } from './helpers';
+import { I18nFlavor } from "@grammyjs/i18n";
 
 export type Context = 
   HydrateFlavor<OriginalContext> & 
   SessionFlavor<SessionData> &
-  ConversationFlavor & 
-  { client: typeof Client };
+  ConversationFlavor & { callbacks: ContextCallbackSaver } &
+  I18nFlavor;
 
 export type Api = HydrateApiFlavor<OriginalApi>;

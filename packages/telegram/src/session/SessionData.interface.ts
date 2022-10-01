@@ -1,7 +1,11 @@
-import { inferAsyncReturnType, inferProcedureOutput } from "@trpc/server";
+import { inferProcedureOutput } from "@trpc/server";
 import { RouterDeclaration } from "../client";
+import { StartDialogueConversation } from "../dialogues";
 
 export interface SessionData {
-  pizzaCount: number,
-  profile?: inferProcedureOutput<RouterDeclaration['_def']['queries']['users.getUser']>
+  conversations: {
+    startConversation?: StartDialogueConversation,
+  }
+  profile?: inferProcedureOutput<RouterDeclaration['_def']['queries']['users.getUser']>,
+  __language_code?: string;
 };

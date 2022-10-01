@@ -9,6 +9,8 @@ const Router = createRouter()
   // (we need to do this manually, due to some issues
   // with typings)
   .merge('users.', Modules.UsersRouter)
+  .merge('servers.', Modules.ServersRouter)
+  .merge('admin.', Modules.AdminRouter)
   .transformer(superjson);
 
 // Exporting

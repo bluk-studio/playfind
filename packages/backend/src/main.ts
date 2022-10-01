@@ -2,6 +2,7 @@ import * as express from 'express';
 import { createExpressMiddleware } from '@trpc/server/adapters/express';
 import { Router } from './router';
 import { createContext } from './context';
+import * as cors from 'cors';
 
 // Creating express application
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 // ...with settings
 
 // CORS and other small things
+app.use(cors());
 
 // Logger
 app.use((req, _res, next) => {
@@ -29,6 +31,6 @@ app.use('/',
 // Starting our application
 const port = process.env.port || 3001;
 const server = app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}/api`);
+  console.log(`Listening at http://localhost:${port}`);
 });
 server.on('error', console.error);

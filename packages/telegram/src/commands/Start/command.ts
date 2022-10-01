@@ -1,4 +1,7 @@
+import { Keyboard } from "grammy";
+import { Client } from "../../client";
 import { Context } from "../../context";
+import { MainPage } from "../../menus";
 import { ICommand } from "../ICommand.interface";
 
 export class StartCommand implements ICommand {
@@ -11,7 +14,7 @@ export class StartCommand implements ICommand {
       ctx.conversation.enter('start-dialogue');
     } else {
       // Opening menu to this user
-      ctx.reply("main menu");
+      MainPage.replyWithMenu(ctx);
     };
   };
 };

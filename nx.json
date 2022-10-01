@@ -22,5 +22,18 @@
       "inputs": ["default", "{workspaceRoot}/.eslintrc.json"]
     }
   },
-  "defaultProject": "telegram"
+  "defaultProject": "telegram",
+  "cli": {
+    "defaultCollection": "@nxext/vite"
+  },
+  "generators": {
+    "@nxext/vite": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    }
+  }
 }

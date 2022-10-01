@@ -1,0 +1,17 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/admin-panel/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          "npx vite dev"
+        ],
+        "cwd": "packages/admin-panel"
+      }
+    }
+  },
+  "tags": []
+}

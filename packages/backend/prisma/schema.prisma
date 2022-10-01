@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://playfind:EIaqbGqvd3mc8joY@cluster0.03jyp.mongodb.net/playfind?retryWrites=true&w=majority"
+}
+
+//
+// User model
+//
+model User {
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
+  profileId    Int     @unique
+  isRegistered Boolean @default(false)
+
+  // User information
+  name     String?
+  nickname String?
+  discord  DiscordConnection?
+  age      Int?
+  about    String?
+  servers  ServerConnection[]
+}
+
+model DiscordConnection {
+  // Relational information
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
+  userId String @unique @db.ObjectId
+
+  // Discord information
+  discordTag String @unique
+}
+
+//
+// Server model
+//
+
+model Server {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  
+  // Visual information
+  name String
+  logotype String
+  description String
+  tags String[]
+
+  // Technical information
+}
+
+model ServerConnection {
+  // Relational information
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  user   User @relation(fields: [userId], references: [id])
+  userId String @unique @db.ObjectId
+
+  // Server information
+  serverId String @db.ObjectId
+
+  // Connection information
+}

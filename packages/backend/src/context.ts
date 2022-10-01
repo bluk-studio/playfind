@@ -1,6 +1,7 @@
 import { CreateExpressContextOptions } from '@trpc/server/adapters/express';
 import { inferAsyncReturnType } from '@trpc/server';
 import { router } from '@trpc/server';
+import { Client } from './client';
 
 export const createContext = (expressContext: CreateExpressContextOptions) => {
   return {
@@ -9,7 +10,7 @@ export const createContext = (expressContext: CreateExpressContextOptions) => {
     res: expressContext.res,
 
     // Application-related context
-    database: "string"
+    database: Client
   }
 };
 export type Context = inferAsyncReturnType<typeof createContext>;
